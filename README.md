@@ -30,6 +30,11 @@
 <h4>Instale as seguintes dependencias</h4>
 <p>$npm install</p>
 
+<h3></h3>
+
+<h4>Configurar o arquivo ormconfig.json</h4>
+<p>Configure o arquivo ormconfig.json com as credencias do seu banco de dados, para que consiga fazer a conexão.</p>
+
 <h4>Rodar migrations para criar tabelas no banco de dados</h4>
 <p>$npm run typeorm migration:run</p>
 
