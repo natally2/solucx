@@ -26,12 +26,23 @@ clientesRouter.get('/', async (req, res) => {
             throw new Error("Nenhum cliente encontrado!");
         }
 
-        return res.json(clientes);
+        return res.status(200).json(clientes);
     } catch (err) {
         return res.status(400).json({error: true, message: err.message});
     }
 });
 
+/**
+ * @swagger
+ * /clientes:
+ *  post:
+ *    description: Retorna todos as avaliações
+ *    responses:
+ *      '200':
+ *        description: Retorna sucesso
+ *      '400':
+ *        description: Retorna mensagem de erro
+ */
 clientesRouter.post('/', async (req, res) => {  
     const { nome, email, telefone, cpf } = req.body;
 
@@ -65,7 +76,7 @@ clientesRouter.post('/', async (req, res) => {
     
         await clientesRepository.save(clientes);
 
-        return res.json(clientes);
+        return res.status(200).json(clientes);
     } catch (err) {
         return res.status(400).json({error: true, message: err.message});
     }
@@ -109,7 +120,7 @@ clientesRouter.put('/:id_cliente', async (req, res) => {
             cpf
         });
     
-        return res.json({success: "Usuário editado com sucesso!"});
+        return res.status(200).json({success: "Usuário editado com sucesso!"});
     } catch (err) {
         return res.status(400).json({error: true, message: err.message});
     }
@@ -133,7 +144,7 @@ clientesRouter.delete('/:id_cliente', async (req, res) => {
         
         await clientesRepository.delete(clientes);
 
-        return res.json("Cliente excluído com sucesso!");
+        return res.status(200).json("Cliente excluído com sucesso!");
     } catch (err) {
         return res.status(400).json({error: true, message: err.message});
     }

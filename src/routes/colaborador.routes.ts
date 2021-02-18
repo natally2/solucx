@@ -26,7 +26,7 @@ colaboradorRouter.get('/', async (req, res) => {
             throw new Error("Nenhum colaborador encontrado!")
         }
 
-        return res.json(colaborador);
+        return res.status(200).json(colaborador);
     } catch (err) {
         return res.status(400).json({error: true, message: err.message});
     }
@@ -50,7 +50,7 @@ colaboradorRouter.post('/', async (req, res) => {
     
         await colaboradorRepository.save(colaborador);
 
-        return res.json(colaborador);
+        return res.status(200).json(colaborador);
     } catch (err) {
         return res.status(400).json({error: true, message: err.message});
     }
@@ -83,7 +83,7 @@ colaboradorRouter.put('/:id_colaborador', async (req, res) => {
             nome
         });
 
-        return res.json({success: "Usuário editado com sucesso!"});
+        return res.status(200).json({success: "Usuário editado com sucesso!"});
     } catch (err) {
         return res.status(400).json({error: true, message: err.message});
     }
@@ -107,7 +107,7 @@ colaboradorRouter.delete('/:id_colaborador', async (req, res) => {
         
         await colaboradorRepository.delete(colaborador);
 
-        return res.json({success: "Usuário excluído com sucesso!"});
+        return res.status(200).json({success: "Usuário excluído com sucesso!"});
     } catch (err) {
         return res.status(400).json({error: true, message: err.message});
     }

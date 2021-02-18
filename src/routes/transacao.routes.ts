@@ -38,9 +38,9 @@ transacaoRouter.post('/', async (req, res) => {
     
         await transacaoRepository.save(transacao);
 
-        return res.json(transacao);
+        return res.status(200).json(transacao);
     } catch (err) {
-        return res.send(err.message);
+        return res.status(400).json({error: true, message: err.message});
     }
 });
 
@@ -80,9 +80,9 @@ transacaoRouter.put('/:id_transacao', async (req, res) => {
             valor
         });
     
-        return res.json({success: "Transação atualizada com sucesso!"});
+        return res.status(200).json({success: "Transação atualizada com sucesso!"});
     } catch (err) {
-        return res.send(err.message);
+        return res.status(400).json({error: true, message: err.message});
     }
 });
 

@@ -26,7 +26,7 @@ lojasRouter.get('/', async (req, res) => {
             throw new Error("Nenhum loja encontrada!");
         }
 
-        return res.json(lojas);
+        return res.status(200).json(lojas);
     } catch (err) {
         return res.status(400).json({error: true, message: err.message});
     }
@@ -51,7 +51,7 @@ lojasRouter.post('/', async (req, res) => {
     
         await lojasRepository.save(lojas);
 
-        return res.json(lojas);
+        return res.status(200).json(lojas);
     } catch (err) {
         return res.status(400).json({error: true, message: err.message});
     }
@@ -86,7 +86,7 @@ lojasRouter.put('/:id_lojas', async (req, res) => {
             nome
         });
     
-        return res.json({success: "Loja editada com sucesso!"});
+        return res.status(200).json({success: "Loja editada com sucesso!"});
     } catch (err) {
         return res.status(400).json({error: true, message: err.message});
     }
@@ -110,7 +110,7 @@ lojasRouter.delete('/:id_lojas', async (req, res) => {
         
         await lojasRepository.delete(lojas);
 
-        return res.json("Loja excluída com sucesso!");
+        return res.status(200).json("Loja excluída com sucesso!");
     } catch (err) {
         return res.status(400).json({error: true, message: err.message});
     }
