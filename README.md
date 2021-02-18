@@ -13,7 +13,6 @@
     isso, o cliente deverá poder dar uma nota (0 a 10), e receber um comentário em que a mesma deve indicar o que gostou ou não.
 </p>
 
-
 <h2>Como executar</h2>
 
 <h3>Para começar você deve instalar as seguintes ferramentas:</h3>

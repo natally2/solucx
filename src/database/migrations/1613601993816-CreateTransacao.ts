@@ -17,22 +17,27 @@ export class CreateTransacao1613601993816 implements MigrationInterface {
                     {
                         name: "id_cliente",
                         type: "int",
+                        isNullable: true
                     },
                     {
                         name: "id_loja",
                         type: "int",
+                        isNullable: true
                     },
                     {
                         name: "id_colaborador",
                         type: "int",
+                        isNullable: true
                     },
                     {
                         name: "data",
                         type: "datetime",
+                        isNullable: true
                     },
                     {
                         name: "valor",
                         type: "decimal",
+                        isNullable: true
                     },
                 ],
                 foreignKeys: [

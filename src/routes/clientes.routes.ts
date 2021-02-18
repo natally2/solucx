@@ -64,8 +64,7 @@ clientesRouter.put('/:id_cliente', async (req, res) => {
         .required("Id do cliente é obrigatório!"),
         nome: yup.string().min(3, 'O nome deve ter no mínimo 3 caracteres.'),
         email: yup.string()
-        .email('Email não possui formato válido.')
-        .required("O email é obrigatório!"),
+        .email('Email não possui formato válido.'),
         telefone: yup.string().min(11, 'Telefone deve ter no mínimo 11 caracteres.'),
         cpf: yup.string().min(11, 'CPF deve ter no mínimo 11 caracteres.')
     });
