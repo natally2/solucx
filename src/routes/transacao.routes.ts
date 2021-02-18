@@ -5,6 +5,17 @@ import Transacao from "../models/Transacao";
 
 const transacaoRouter = Router();
 
+/**
+ * @swagger
+ * /clientes:
+ *  put:
+ *    description: Recebe dados (id_cliente, id_loja, id_colaborador, data, valor ) para criar uma transação
+ *    responses:
+ *      '200':
+ *        description: Retorna sucesso
+ *      '400':
+ *        description: Retorna mensagem de erro
+ */
 transacaoRouter.post('/', async (req, res) => {
     const { id_cliente, id_loja, id_colaborador, data, valor } = req.body;
     const id = req.params.id_transacao;
@@ -44,6 +55,17 @@ transacaoRouter.post('/', async (req, res) => {
     }
 });
 
+/**
+ * @swagger
+ * /clientes:
+ *  put:
+ *    description: Recebe dados (id_cliente, id_loja, id_colaborador, data, valor ) para atualizar uma transação
+ *    responses:
+ *      '200':
+ *        description: Retorna sucesso
+ *      '400':
+ *        description: Retorna mensagem de erro
+ */
 transacaoRouter.put('/:id_transacao', async (req, res) => {
     const { id_cliente, id_loja, id_colaborador, data, valor } = req.body;
     const id = req.params.id_transacao;

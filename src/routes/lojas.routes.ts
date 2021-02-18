@@ -9,7 +9,7 @@ const lojasRouter = Router();
  * @swagger
  * /lojas:
  *  get:
- *    description: Retorna todos as avaliações
+ *    description: Retorna uma lista com todas as lojas
  *    responses:
  *      '200':
  *        description: Retorna sucesso
@@ -32,6 +32,17 @@ lojasRouter.get('/', async (req, res) => {
     }
 });
 
+/**
+ * @swagger
+ * /clientes:
+ *  post:
+ *    description: Insere dados (nome) para fazer criar uma loja
+ *    responses:
+ *      '200':
+ *        description: Retorna sucesso
+ *      '400':
+ *        description: Retorna mensagem de erro
+ */
 lojasRouter.post('/', async (req, res) => {
     const { nome } = req.body;
 
@@ -57,6 +68,17 @@ lojasRouter.post('/', async (req, res) => {
     }
 });
 
+/**
+ * @swagger
+ * /clientes:
+ *  put:
+ *    description: Recebe dados (nome) para atualizar uma loja
+ *    responses:
+ *      '200':
+ *        description: Retorna sucesso
+ *      '400':
+ *        description: Retorna mensagem de erro
+ */
 lojasRouter.put('/:id_lojas', async (req, res) => {
     const { nome } = req.body;
     const id = req.params.id_lojas;
@@ -92,6 +114,17 @@ lojasRouter.put('/:id_lojas', async (req, res) => {
     }
 });
 
+/**
+ * @swagger
+ * /clientes:
+ *  delete:
+ *    description: Recebe um id de uma loja para excluir
+ *    responses:
+ *      '200':
+ *        description: Retorna sucesso
+ *      '400':
+ *        description: Retorna mensagem de erro
+ */
 lojasRouter.delete('/:id_lojas', async (req, res) => {
     const id = req.params.id_lojas;
 

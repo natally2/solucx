@@ -9,7 +9,7 @@ const clientesRouter = Router();
  * @swagger
  * /clientes:
  *  get:
- *    description: Retorna todos as avaliações
+ *    description: Retorna uma lista com todos os clientes
  *    responses:
  *      '200':
  *        description: Retorna sucesso
@@ -36,7 +36,7 @@ clientesRouter.get('/', async (req, res) => {
  * @swagger
  * /clientes:
  *  post:
- *    description: Retorna todos as avaliações
+ *    description: Insere dados (nome, email, telefone, cpf) para criar um usuário (cliente)
  *    responses:
  *      '200':
  *        description: Retorna sucesso
@@ -82,6 +82,17 @@ clientesRouter.post('/', async (req, res) => {
     }
 });
 
+/**
+ * @swagger
+ * /clientes:
+ *  put:
+ *    description: Recebe dados (nome, email, telefone, cpf) para atualizar um usuário (cliente)
+ *    responses:
+ *      '200':
+ *        description: Retorna sucesso
+ *      '400':
+ *        description: Retorna mensagem de erro
+ */
 clientesRouter.put('/:id_cliente', async (req, res) => {
     const { nome, email, telefone, cpf } = req.body;
     const id = req.params.id_cliente;
@@ -126,6 +137,17 @@ clientesRouter.put('/:id_cliente', async (req, res) => {
     }
 });
 
+/**
+ * @swagger
+ * /clientes:
+ *  delete:
+ *    description: Recebe um id de usuário para excluir
+ *    responses:
+ *      '200':
+ *        description: Retorna sucesso
+ *      '400':
+ *        description: Retorna mensagem de erro
+ */
 clientesRouter.delete('/:id_cliente', async (req, res) => {
     const id = req.params.id_cliente;
 
