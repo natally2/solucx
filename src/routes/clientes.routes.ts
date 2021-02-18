@@ -30,7 +30,7 @@ clientesRouter.post('/', async (req, res) => {
         .email('Email não possui formato válido.')
         .required("O email é obrigatório!"),
         telefone: yup.string().min(11, 'Telefone deve ter no mínimo 11 caracteres.'),
-        cpf: yup.string().min(11, 'CPF deve ter no mínimo 11 caracteres.')
+        cpf: yup.string().required().min(11, 'CPF deve ter no mínimo 11 caracteres.')
     });
 
     try {
