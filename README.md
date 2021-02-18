@@ -4,8 +4,8 @@
 <h2>Tabela de conteúdos</h2>
 
 <p align="center">
- <a href="#sobre">Sobre o projeto</a> • 
- <a href="#executar">Como executar</a> • 
+ <p>Sobre o projeto</p> • 
+ <p>Como executar</p> • 
 </p>
 
 ## Sobre o Projeto
@@ -25,19 +25,19 @@
 
 <h4>Para rodar o projeto</h4>
 <br>
-    **Clone o seguinte repositório:**
+    <h5>Clone o seguinte repositório:></h5>
     <p>https://github.com/natally2/solucx.git</p>
 <br>
-    **Instale as seguintes dependencias**
+    <h5>Instale as seguintes dependencias</h5>
     <p>$npm install</p>
 <br>
-    **Instale as seguintes dependencias**
+    <h5>Instale as seguintes dependencias</h5>
     <p>$npm install</p>
 <br>
-    **Rodar migrations para criar tabelas no banco de dados**
+    <h5>Rodar migrations para criar tabelas no banco de dados</h5>
     <p>npm run typeorm migration:run</p>
 <br>
-    **Para executar o projeto:**
+    <h5>Para executar o projeto:</h5>
     <p>npm run start</p>
 
 <h4 align="center"> 
