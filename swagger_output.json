@@ -1,0 +1,471 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "REST API",
+    "description": ""
+  },
+  "host": "localhost:3333",
+  "basePath": "/",
+  "tags": [],
+  "schemes": [
+    "http"
+  ],
+  "consumes": [],
+  "produces": [],
+  "paths": {
+    "/avaliacao/": {
+      "get": {
+        "tags": ["Avaliação"],
+        "description": "Retorna uma lista contendo as avaliações",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "post": {
+        "tags": ["Avaliação"],
+        "description": "Criando avaliação.",
+        "parameters": [
+            {
+                "name": "id_transacao",
+                "in": "path",
+                "required": true,
+                "description": "Id da transação.",
+                "type": "integer"
+            },
+            {
+                "name": "nota",
+                "in": "path",
+                "required": true,
+                "description": "Nota de 0 a 10 para avaliar a loja.",
+                "type": "integer"
+            },
+            {
+                "name": "comentario",
+                "in": "path",
+                "required": true,
+                "description": "Comentário referente a avaliação da loja.",
+                "type": "string"
+            }
+        ],        
+        "responses": {
+            "200": {
+                "description": "OK"
+            },
+            "400": {
+                "description": "Bad Request"
+            }
+        }
+      }
+    },
+    "/clientes/": {
+      "get": {
+        "tags": ["Cliente"],
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "post": {
+        "tags": ["Cliente"],
+        "description": "Insere dados do cliente.",
+        "parameters": [
+            {
+                "name": "nome",
+                "in": "path",
+                "required": true,
+                "description": "Nome do cliente.",
+                "type": "string"
+            },
+            {
+                "name": "email",
+                "in": "path",
+                "required": true,
+                "description": "E-mail do cliente.",
+                "type": "string"
+            },
+            {
+                "name": "telefone",
+                "in": "path",
+                "required": true,
+                "description": "Telefone do cliente.",
+                "type": "string"
+            },
+            {
+                "name": "cpf",
+                "in": "path",
+                "required": true,
+                "description": "CPF do cliente.",
+                "type": "string"
+            }
+        ],               
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/clientes/{id_cliente}": {
+      "put": {
+        "tags": ["Cliente"],
+        "description": "Atualiza dados do cliente.",
+        "parameters": [
+            {
+                "name": "id_cliente",
+                "in": "path",
+                "required": true,
+                "description": "ID do cliente.",
+                "type": "integer"
+            },
+            {
+                "name": "nome",
+                "in": "path",
+                "required": true,
+                "description": "Nome do cliente.",
+                "type": "string"
+            },
+            {
+                "name": "email",
+                "in": "path",
+                "required": true,
+                "description": "E-mail do cliente.",
+                "type": "integer"
+            },
+            {
+                "name": "telefone",
+                "in": "path",
+                "required": true,
+                "description": "Telefone do cliente.",
+                "type": "string"
+            },
+            {
+                "name": "cpf",
+                "in": "path",
+                "required": true,
+                "description": "CPF do cliente.",
+                "type": "string"
+            }
+        ], 
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Cliente"],
+        "description": "Deleta um cliente a partir de seu id.",
+        "parameters": [
+          {
+            "name": "id_cliente",
+            "description": "Id do cliente que deseja excluir.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/colaborador/": {
+      "get": {
+        "tags": ["Colaborador"],
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "post": {
+        "tags": ["Colaborador"],
+        "description": "Insere dados do colaborador.",
+        "parameters": [
+            {
+                "name": "nome",
+                "in": "path",
+                "required": true,
+                "description": "Nome do colaborador.",
+                "type": "string"
+            }
+        ], 
+        "responses": {
+            "200": {
+                "description": "OK"
+           },
+            "400": {
+                "description": "Bad Request"
+           }
+        }
+      }
+    },
+    "/colaborador/{id_colaborador}": {
+      "put": {
+        "tags": ["Colaborador"],
+        "description": "Atualiza dados do colaborador.",
+        "parameters": [
+          {
+            "name": "id_colaborador",
+            "in": "path",
+            "description": "ID do colaborador.",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "nome",
+            "in": "path",
+            "description": "Nome do colaborador.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Colaborador"],
+        "description": "Exclui um colaborador a partir de seu ID.",
+        "parameters": [
+          {
+            "name": "id_colaborador",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/lojas/": {
+      "get": {
+        "tags": ["Lojas"],
+        "description": "Retorna todas as lojas.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "post": {
+        "tags": ["Lojas"],
+        "description": "Insere dados da loja.",
+        "parameters": [
+            {
+                "name": "nome",
+                "in": "path",
+                "required": true,
+                "description": "Nome da loja",
+                "type": "string"               
+            }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/lojas/{id_lojas}": {
+      "put": {
+        "tags": ["Lojas"],
+        "description": "Atualiza dados da loja",
+        "parameters": [
+            {
+                "name": "id_lojas",
+                "in": "path",
+                "required": true,
+                "description": "ID da loja",
+                "type": "integer"
+            },
+            {
+                "name": "nome",
+                "in": "path",
+                "required": true,
+                "description": "Nome da loja",
+                "type": "string"
+            }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Lojas"],
+        "description": "Exclui uma loja a partir de seu id.",
+        "parameters": [
+          {
+            "name": "id_lojas",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/transacao/": {
+      "post": {
+        "tags": ["Transação"],
+        "description": "Insere dados referente a transação.",
+        "parameters": [
+            {
+                "name": "id_cliente",
+                "in": "path",
+                "description": "ID do cliente.",
+                "required": true,
+                "type": "integer"
+            },
+            {
+                "name": "id_colaborador",
+                "in": "path",
+                "description": "ID do colaborador.",
+                "required": true,
+                "type": "integer"
+            },
+            {
+                "name": "id_loja",
+                "in": "path",
+                "description": "ID da loja.",
+                "required": true,
+                "type": "integer"
+            },
+            {
+                "name": "data",
+                "in": "path",
+                "description": "Data em que a transação foi feita.",
+                "required": true,
+                "type": "date"
+            },
+            {
+                "name": "valor",
+                "in": "path",
+                "description": "Valor da transação.",
+                "required": true,
+                "type": "integer"
+            }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/transacao/{id_transacao}": {
+      "put": {
+        "tags": ["Transação"],
+        "description": "Atualiza dados da transação",
+        "parameters": [
+            {
+                "name": "id_cliente",
+                "in": "path",
+                "description": "ID do cliente.",
+                "required": true,
+                "type": "integer"
+            },
+            {
+                "name": "id_colaborador",
+                "in": "path",
+                "description": "ID do colaborador.",
+                "required": true,
+                "type": "integer"
+            },
+            {
+                "name": "id_loja",
+                "in": "path",
+                "description": "ID da loja.",
+                "required": true,
+                "type": "integer"
+            },
+            {
+                "name": "data",
+                "in": "path",
+                "description": "Data em que a transação foi feita.",
+                "required": true,
+                "type": "date"
+            },
+            {
+                "name": "valor",
+                "in": "path",
+                "description": "Valor da transação.",
+                "required": true,
+                "type": "integer"
+            }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {}
+}

@@ -5,17 +5,6 @@ import Avaliacao from "../models/Avaliacao";
 
 const avaliacaoRouter = Router();
 
-/**
- * @swagger
- * /avaliacao:
- *  get:
- *    description: Retorna todos as avaliações
- *    responses:
- *      '200':
- *        description: Retorna sucesso
- *      '400':
- *        description: Retorna mensagem de erro
- */
 avaliacaoRouter.get('/', async (req, res) => {
     try {
         const avaliacaoRepository = getRepository(Avaliacao);
@@ -32,17 +21,7 @@ avaliacaoRouter.get('/', async (req, res) => {
     }
 });
 
-/**
- * @swagger
- * /avaliacao:
- *  post:
- *    description: Insere dados (id_transacao, nota, comentario) para fazer a avaliação
- *    responses:
- *      '200':
- *        description: Retorna sucesso
- *      '400':
- *        description: Retorna mensagem de erro
- */
+
 avaliacaoRouter.post('/', async (req, res) => {
     const { id_transacao, nota, comentario } = req.body;
 

@@ -5,17 +5,6 @@ import Colaborador from "../models/Colaborador";
 
 const colaboradorRouter = Router();
 
-/**
- * @swagger
- * /colaborador:
- *  get:
- *    description: Retorna uma lista de todos os colaboradores 
- *    responses:
- *      '200':
- *        description: Retorna sucesso
- *      '400':
- *        description: Retorna mensagem de erro
- */
 colaboradorRouter.get('/', async (req, res) => {
     try {
         const colaboradorRepository = getRepository(Colaborador);
@@ -33,17 +22,6 @@ colaboradorRouter.get('/', async (req, res) => {
 });
 
 
-/**
- * @swagger
- * /clientes:
- *  post:
- *    description: Insere dados (nome) para fazer criar um colaborador
- *    responses:
- *      '200':
- *        description: Retorna sucesso
- *      '400':
- *        description: Retorna mensagem de erro
- */
 colaboradorRouter.post('/', async (req, res) => {
     const { nome } = req.body;
 
@@ -68,17 +46,6 @@ colaboradorRouter.post('/', async (req, res) => {
     }
 });
 
-/**
- * @swagger
- * /clientes:
- *  put:
- *    description: Recebe dados (nome) para atualizar um colaborador
- *    responses:
- *      '200':
- *        description: Retorna sucesso
- *      '400':
- *        description: Retorna mensagem de erro
- */
 colaboradorRouter.put('/:id_colaborador', async (req, res) => {
     const { nome } = req.body;
     const id = req.params.id_colaborador;
@@ -112,17 +79,7 @@ colaboradorRouter.put('/:id_colaborador', async (req, res) => {
     }
 });
 
-/**
- * @swagger
- * /clientes:
- *  delete:
- *    description: Recebe um id de um colaborador para excluir
- *    responses:
- *      '200':
- *        description: Retorna sucesso
- *      '400':
- *        description: Retorna mensagem de erro
- */
+
 colaboradorRouter.delete('/:id_colaborador', async (req, res) => {
     const id = req.params.id_colaborador;
 
