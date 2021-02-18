@@ -5,6 +5,17 @@ import Colaborador from "../models/Colaborador";
 
 const colaboradorRouter = Router();
 
+/**
+ * @swagger
+ * /colaborador:
+ *  get:
+ *    description: Retorna todos as avaliações
+ *    responses:
+ *      '200':
+ *        description: Retorna sucesso
+ *      '400':
+ *        description: Retorna mensagem de erro
+ */
 colaboradorRouter.get('/', async (req, res) => {
     try {
         const colaboradorRepository = getRepository(Colaborador);

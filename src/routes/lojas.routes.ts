@@ -5,6 +5,17 @@ import Lojas from "../models/Lojas";
 
 const lojasRouter = Router();
 
+/**
+ * @swagger
+ * /lojas:
+ *  get:
+ *    description: Retorna todos as avaliações
+ *    responses:
+ *      '200':
+ *        description: Retorna sucesso
+ *      '400':
+ *        description: Retorna mensagem de erro
+ */
 lojasRouter.get('/', async (req, res) => {
     try {
         const lojasRepository = getRepository(Lojas);

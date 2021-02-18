@@ -5,6 +5,17 @@ import Clientes from "../models/Clientes";
 
 const clientesRouter = Router();
 
+/**
+ * @swagger
+ * /clientes:
+ *  get:
+ *    description: Retorna todos as avaliações
+ *    responses:
+ *      '200':
+ *        description: Retorna sucesso
+ *      '400':
+ *        description: Retorna mensagem de erro
+ */
 clientesRouter.get('/', async (req, res) => {
     try {
         const clientesRepository = getRepository(Clientes);

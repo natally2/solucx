@@ -5,6 +5,17 @@ import Avaliacao from "../models/Avaliacao";
 
 const avaliacaoRouter = Router();
 
+/**
+ * @swagger
+ * /avaliacao:
+ *  get:
+ *    description: Retorna todos as avaliações
+ *    responses:
+ *      '200':
+ *        description: Retorna sucesso
+ *      '400':
+ *        description: Retorna mensagem de erro
+ */
 avaliacaoRouter.get('/', async (req, res) => {
     try {
         const avaliacaoRepository = getRepository(Avaliacao);
@@ -15,7 +26,7 @@ avaliacaoRouter.get('/', async (req, res) => {
             throw new Error("Nenhuma avaliação encontrada!");
         }
 
-        return res.json(avaliacao);
+        return res.status(200).json(avaliacao);
     } catch (err) {
         return res.status(400).json({error: true, message: err.message});
     }
