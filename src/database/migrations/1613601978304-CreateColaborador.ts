@@ -17,7 +17,6 @@ export class CreateColaborador1613601978304 implements MigrationInterface {
                     {
                         name: "nome",
                         type: "varchar(100)",
-                        isNullable: true
                     }
                 ]
             })

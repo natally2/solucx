@@ -52,8 +52,12 @@ transacaoRouter.put('/:id_transacao', async (req, res) => {
         .required("Id do cliente é obrigatório!"),
         id_loja: yup.number().integer().positive()
         .required("Id da loja é obrigatório!"),
-        id_colaborador: yup.number().integer().positive(),
-        valor: yup.number().required().positive(),
+        id_colaborador: yup.number()
+        .integer("O id deve ser um número inteiro")
+        .positive("O id deve ser um número positivo"),
+        valor: yup.number()
+        .required()
+        .positive("O valor deve ser um número positivo!"),
         data: yup.date().required()
     });
 
@@ -61,6 +65,10 @@ transacaoRouter.put('/:id_transacao', async (req, res) => {
         await schema.validate({id, id_cliente, id_loja, id_colaborador, data, valor});
         const transacaoRepository = getRepository(Transacao);
     
+        const transacao = transacaoRepository.findOne(id);
+
+        if (!transacao) throw new Error("Transação não existe!");
+
         await transacaoRepository.update(id, {
             id_cliente,
             id_loja,

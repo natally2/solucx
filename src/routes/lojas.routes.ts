@@ -55,7 +55,8 @@ lojasRouter.put('/:id_lojas', async (req, res) => {
         .integer()
         .positive()
         .required("O id é obrigatório!"),
-        nome: yup.string().required("O nome é obrigatório.")
+        nome: yup.string()
+        .required("O nome é obrigatório.")
         .min(3, 'O nome deve ter no mínimo 3 caracteres.')
     });
     
@@ -64,6 +65,12 @@ lojasRouter.put('/:id_lojas', async (req, res) => {
 
         const lojasRepository = getRepository(Lojas);
     
+        const lojas = await lojasRepository.findOne(id);
+
+        if (!lojas) {
+            throw new Error("Nenhum loja encontrada!")
+        }
+
         await lojasRepository.update(id, {
             nome
         });

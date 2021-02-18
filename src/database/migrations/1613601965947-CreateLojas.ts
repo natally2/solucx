@@ -17,7 +17,6 @@ export class CreateLojas1613601965947 implements MigrationInterface {
                     {
                         name: "nome",
                         type: "varchar(100)",
-                        isNullable: true
                     }
                 ]
             })

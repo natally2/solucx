@@ -25,12 +25,19 @@ clientesRouter.post('/', async (req, res) => {
     const { nome, email, telefone, cpf } = req.body;
 
     const schema = yup.object({
-        nome: yup.string().min(3, 'O nome deve ter no mínimo 3 caracteres.'),
+        nome: yup.string()
+        .required()
+        .min(3, 'O nome deve ter no mínimo 3 caracteres.'),
         email: yup.string()
         .email('Email não possui formato válido.')
-        .required("O email é obrigatório!"),
-        telefone: yup.string().min(11, 'Telefone deve ter no mínimo 11 caracteres.'),
-        cpf: yup.string().required().min(11, 'CPF deve ter no mínimo 11 caracteres.')
+        .required('O email é obrigatório!')
+        .min(5, 'Email deve ter no mínimo 5 caracteres.'),
+        telefone: yup.string()
+        .required()
+        .min(11, 'Telefone deve ter no mínimo 11 caracteres.'),
+        cpf: yup.string()
+        .required('O cpf é obrigatório')
+        .min(11, 'CPF deve ter no mínimo 11 caracteres.')
     });
 
     try {
@@ -58,21 +65,31 @@ clientesRouter.put('/:id_cliente', async (req, res) => {
     const id = req.params.id_cliente;
 
     const schema = yup.object({
-        id: yup.number()  
-        .integer()
-        .positive()
-        .required("Id do cliente é obrigatório!"),
-        nome: yup.string().min(3, 'O nome deve ter no mínimo 3 caracteres.'),
+        nome: yup.string()
+        .required()
+        .min(3, 'O nome deve ter no mínimo 3 caracteres.'),
         email: yup.string()
-        .email('Email não possui formato válido.'),
-        telefone: yup.string().min(11, 'Telefone deve ter no mínimo 11 caracteres.'),
-        cpf: yup.string().min(11, 'CPF deve ter no mínimo 11 caracteres.')
+        .email('Email não possui formato válido.')
+        .required('O email é obrigatório!')
+        .min(5, 'Email deve ter no mínimo 5 caracteres.'),
+        telefone: yup.string()
+        .required()
+        .min(11, 'Telefone deve ter no mínimo 11 caracteres.'),
+        cpf: yup.string()
+        .required('O cpf é obrigatório')
+        .min(11, 'CPF deve ter no mínimo 11 caracteres.')
     });
 
     try {
         await schema.validate({id, nome, email, telefone, cpf});
 
         const clientesRepository = getRepository(Clientes);
+
+        const clientes = await clientesRepository.findOne(id);
+
+        if (!clientes) {
+            throw new Error("Nenhum cliente encontrado!")
+        }
     
         await clientesRepository.update(id, {
             nome,
