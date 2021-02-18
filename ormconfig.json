@@ -1,0 +1,22 @@
+{
+    "type": "mssql",
+    "host": "LAPTOP-F20SJCQC",
+    "port": 1433,
+    "username": "natally",
+    "password": "nat123",
+    "database": "review",
+    "options": {
+        "encrypt": true,
+        "enableArithAbort": true
+    },
+    "entities": [
+       "./src/models/*.ts"
+    ],
+    "migrations": [
+       "./src/database/migrations/*.ts"
+    ],
+    "cli": {
+       "entitiesDir": "./src/models",
+       "migrationsDir": "./src/database/migrations"
+    }
+ }
