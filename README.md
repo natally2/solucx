@@ -3,10 +3,9 @@
 
 <h2>Tabela de conteúdos</h2>
 
-<p align="center">
- <p>Sobre o projeto</p> • 
- <p>Como executar</p> • 
-</p>
+ <p>Sobre o projeto</p> 
+ <p>Como executar</p>
+
 
 ## Sobre o Projeto
 <p>
@@ -17,28 +16,28 @@
 
 # Como executar
 
-<h4>Para começar você deve instalar as seguintes ferramentas:</h4>
+<h3>Para começar você deve instalar as seguintes ferramentas:</h3>
 
 - Git
 - SQL Server
 - Node js
 
-<h4>Para rodar o projeto</h4>
-<br>
-    <h5>Clone o seguinte repositório:></h5>
-    <p>https://github.com/natally2/solucx.git</p>
-<br>
-    <h5>Instale as seguintes dependencias</h5>
-    <p>$npm install</p>
-<br>
-    <h5>Instale as seguintes dependencias</h5>
-    <p>$npm install</p>
-<br>
-    <h5>Rodar migrations para criar tabelas no banco de dados</h5>
-    <p>npm run typeorm migration:run</p>
-<br>
-    <h5>Para executar o projeto:</h5>
-    <p>npm run start</p>
+<h3>Para rodar o projeto</h3>
+
+<h4>Clone o seguinte repositório:></h4>
+<p>https://github.com/natally2/solucx.git</p>
+
+<h4>Instale as seguintes dependencias</h4>
+<p>$npm install</p>
+
+<h4>Instale as seguintes dependencias</h4>
+<p>$npm install</p>
+
+<h4>Rodar migrations para criar tabelas no banco de dados</h4>
+<p>npm run typeorm migration:run</p>
+
+<h4>Para executar o projeto:</h4>
+<p>npm run start</p>
 
 <h4 align="center"> 
 	Em construção
