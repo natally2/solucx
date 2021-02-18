@@ -12,6 +12,7 @@
   "author": "Natally",
   "license": "ISC",
   "devDependencies": {
+    "@types/cors": "^2.8.10",
     "@types/swagger-jsdoc": "^6.0.0",
     "eslint": "^7.20.0"
   },
