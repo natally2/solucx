@@ -24,20 +24,17 @@
 
 <h3>Para rodar o projeto</h3>
 
-<h4>Clone o seguinte repositório:></h4>
+<h4>Clone o seguinte repositório:</h4>
 <p>https://github.com/natally2/solucx.git</p>
 
 <h4>Instale as seguintes dependencias</h4>
 <p>$npm install</p>
 
-<h4>Instale as seguintes dependencias</h4>
-<p>$npm install</p>
-
 <h4>Rodar migrations para criar tabelas no banco de dados</h4>
-<p>npm run typeorm migration:run</p>
+<p>$npm run typeorm migration:run</p>
 
 <h4>Para executar o projeto:</h4>
-<p>npm run start</p>
+<p>$npm run start</p>
 
 <h4 align="center"> 
 	Em construção
