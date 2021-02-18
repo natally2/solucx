@@ -10,15 +10,18 @@ transacaoRouter.post('/', async (req, res) => {
     const id = req.params.id_transacao;
 
     const schema = yup.object({
-        id: yup.number().integer().positive()
-        .required("Id da transação é obrigatório!"),
         id_cliente: yup.number().integer().positive()
         .required("Id do cliente é obrigatório!"),
         id_loja: yup.number().integer().positive()
         .required("Id da loja é obrigatório!"),
-        id_colaborador: yup.number().integer().positive(),
-        valor: yup.number().required().positive(),
-        data: yup.date().required()
+        id_colaborador: yup.number()
+        .required()
+        .integer("O id deve ser um número inteiro!")
+        .positive("O id deve ser um número positivo!"),
+        valor: yup.number()
+        .required()
+        .positive("O valor deve ser um número positivo!"),
+        data: yup.date().required("A data é obrigatória!")
     });
 
     try {

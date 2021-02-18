@@ -12,7 +12,7 @@ clientesRouter.get('/', async (req, res) => {
         const clientes = await clientesRepository.find();
 
         if (!clientes.length) {
-            throw new Error("Nenhum cliente encontrado!")
+            throw new Error("Nenhum cliente encontrado!");
         }
 
         return res.json(clientes);
@@ -26,7 +26,7 @@ clientesRouter.post('/', async (req, res) => {
 
     const schema = yup.object({
         nome: yup.string()
-        .required()
+        .required('O nome é obrigatório.')
         .min(3, 'O nome deve ter no mínimo 3 caracteres.'),
         email: yup.string()
         .email('Email não possui formato válido.')
@@ -66,7 +66,7 @@ clientesRouter.put('/:id_cliente', async (req, res) => {
 
     const schema = yup.object({
         nome: yup.string()
-        .required()
+        .required('O nome é obrigatório.')
         .min(3, 'O nome deve ter no mínimo 3 caracteres.'),
         email: yup.string()
         .email('Email não possui formato válido.')

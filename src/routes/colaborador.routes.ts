@@ -65,7 +65,7 @@ colaboradorRouter.put('/:id_colaborador', async (req, res) => {
         const colaborador = await colaboradorRepository.findOne(id);
 
         if (!colaborador) {
-            throw new Error("Nenhum colaborador encontrado!")
+            throw new Error("Nenhum colaborador encontrado!");
         }
     
         await colaboradorRepository.update(id, {

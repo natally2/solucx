@@ -12,7 +12,7 @@ avaliacaoRouter.get('/', async (req, res) => {
         const avaliacao = await avaliacaoRepository.find();
 
         if (!avaliacao.length) {
-            throw new Error("Nenhuma avaliação encontrada!")
+            throw new Error("Nenhuma avaliação encontrada!");
         }
 
         return res.json(avaliacao);

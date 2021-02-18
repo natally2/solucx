@@ -12,7 +12,7 @@ lojasRouter.get('/', async (req, res) => {
         const lojas = await lojasRepository.find();
 
         if (!lojas.length) {
-            throw new Error("Nenhum loja encontrada!")
+            throw new Error("Nenhum loja encontrada!");
         }
 
         return res.json(lojas);
@@ -26,7 +26,7 @@ lojasRouter.post('/', async (req, res) => {
 
     const schema = yup.object({
         nome: yup.string().required("O nome é obrigatório.")
-        .min(3, 'O nome deve ter no mínimo 3 caracteres.')
+        .min(3, "O nome deve ter no mínimo 3 caracteres.")
     });
     
     try {
@@ -52,12 +52,12 @@ lojasRouter.put('/:id_lojas', async (req, res) => {
 
     const schema = yup.object({
         id: yup.number()
-        .integer()
-        .positive()
+        .integer("O id deve ser um número inteiro")
+        .positive("O id deve ser um número positivo!")
         .required("O id é obrigatório!"),
         nome: yup.string()
         .required("O nome é obrigatório.")
-        .min(3, 'O nome deve ter no mínimo 3 caracteres.')
+        .min(3, "O nome deve ter no mínimo 3 caracteres.")
     });
     
     try {
@@ -82,7 +82,7 @@ lojasRouter.put('/:id_lojas', async (req, res) => {
 });
 
 lojasRouter.delete('/:id_lojas', async (req, res) => {
-    const id = req.params.id_cliente;
+    const id = req.params.id_lojas;
 
     const schema = yup.object({
         id: yup.number().integer().positive().required("Id da loja é obrigatório!")
