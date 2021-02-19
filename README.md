@@ -40,6 +40,8 @@
 <h4>Para executar o projeto:</h4>
 <p>$npm run start</p>
 
+<h2>Documentação</h2>
+<p>Para acessar basta acessar: baseURL/docs</p>
 <h4 align="center"> 
 	Em construção
 </h4>
