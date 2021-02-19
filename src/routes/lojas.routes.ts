@@ -24,7 +24,7 @@ lojasRouter.get('/', async (req, res) => {
 
 lojasRouter.post('/', async (req, res) => {
     const { nome } = req.body;
-
+    console.log(nome)
     const schema = yup.object({
         nome: yup.string().required("O nome é obrigatório.")
         .min(3, "O nome deve ter no mínimo 3 caracteres.")

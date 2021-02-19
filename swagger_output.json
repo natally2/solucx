@@ -298,10 +298,10 @@
         "parameters": [
             {
                 "name": "nome",
-                "in": "path",
+                "in": "body",
                 "required": true,
                 "description": "Nome da loja",
-                "type": "string"               
+                "type": "string"        
             }
         ],
         "responses": {
