@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0.0",
-    "title": "REST API",
+    "title": "Solucx",
     "description": ""
   },
   "host": "localhost:3333",
@@ -296,21 +296,17 @@
         "tags": [
           "Lojas"
         ],
-        "summary": "Create a new cat in system",
-        "requestBody": {
-            "description": "Cat Object",
-            "required": true,
-            "content": {
-                "application/json": {
-                  "schema": {
-                      "$ref": "#/definitions/Loja"
-                  }
-                }
-            }
-        },
-        "produces": [
-          "application/json"
-        ],
+        "description": "Endpoint para cadastrar uma nova loja.",
+        "parameters":[{
+          "name": "obj",
+          "in": "body",
+          "description": "Dados",
+          "required": true,
+          "type": "object",
+          "schema": {
+            "$ref": "#/definitions/Loja"
+          }
+        }],
         "responses": {
             "200": {
                 "description": "OK"
@@ -327,18 +323,18 @@
         "description": "Atualiza dados da loja",
         "parameters": [
             {
-                "name": "id_lojas",
-                "in": "path",
-                "required": true,
-                "description": "ID da loja",
-                "type": "integer"
+              "name": "id_lojas",
+              "in": "path",
+              "required": true,
+              "description": "ID da loja",
+              "type": "integer"
             },
             {
-                "name": "nome",
-                "in": "path",
-                "required": true,
-                "description": "Nome da loja",
-                "type": "string"
+              "name": "nome",
+              "in": "path",
+              "required": true,
+              "description": "Nome da loja",
+              "type": "string"
             }
         ],
         "responses": {
