@@ -41,7 +41,7 @@
 <p>$npm run start</p>
 
 <h2>Documentação</h2>
-<p>Para acessar basta acessar: baseURL/docs</p>
+<p>Para entrar na documentação basta acessar o caminho: baseURL/docs</p>
 <h4 align="center"> 
 	Em construção
 </h4>
