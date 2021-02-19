@@ -380,9 +380,9 @@
         "description": "Atualiza dados da transação",
         "parameters": [
           {
-            "name": "id_cliente",
+            "name": "id_transacao",
             "in": "path",
-            "description": "ID do cliente.",
+            "description": "ID da transação.",
             "required": true,
             "type": "integer"
           },
