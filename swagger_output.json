@@ -211,11 +211,11 @@
         "description": "Insere dados do colaborador.",
         "parameters": [
             {
-                "name": "nome",
-                "in": "path",
-                "required": true,
-                "description": "Nome do colaborador.",
-                "type": "string"
+              "name": "nome",
+              "in": "path",
+              "required": true,
+              "description": "Nome do colaborador.",
+              "type": "string"
             }
         ], 
         "responses": {
@@ -293,24 +293,31 @@
         }
       },
       "post": {
-        "tags": ["Lojas"],
-        "description": "Insere dados da loja.",
-        "parameters": [
-            {
-                "name": "nome",
-                "in": "body",
-                "required": true,
-                "description": "Nome da loja",
-                "type": "string"        
+        "tags": [
+          "Lojas"
+        ],
+        "summary": "Create a new cat in system",
+        "requestBody": {
+            "description": "Cat Object",
+            "required": true,
+            "content": {
+                "application/json": {
+                  "schema": {
+                      "$ref": "#/definitions/Loja"
+                  }
+                }
             }
+        },
+        "produces": [
+          "application/json"
         ],
         "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          }
+            "200": {
+                "description": "OK"
+            },
+            "400": {
+                "description": "Failed. Bad post data."
+            }
         }
       }
     },
@@ -370,39 +377,39 @@
         "description": "Insere dados referente a transação.",
         "parameters": [
             {
-                "name": "id_cliente",
-                "in": "path",
-                "description": "ID do cliente.",
-                "required": true,
-                "type": "integer"
+              "name": "id_cliente",
+              "in": "path",
+              "description": "ID do cliente.",
+              "required": true,
+              "type": "integer"
             },
             {
-                "name": "id_colaborador",
-                "in": "path",
-                "description": "ID do colaborador.",
-                "required": true,
-                "type": "integer"
+              "name": "id_colaborador",
+              "in": "path",
+              "description": "ID do colaborador.",
+              "required": true,
+              "type": "integer"
             },
             {
-                "name": "id_loja",
-                "in": "path",
-                "description": "ID da loja.",
-                "required": true,
-                "type": "integer"
+              "name": "id_loja",
+              "in": "path",
+              "description": "ID da loja.",
+              "required": true,
+              "type": "integer"
             },
             {
-                "name": "data",
-                "in": "path",
-                "description": "Data em que a transação foi feita.",
-                "required": true,
-                "type": "date"
+              "name": "data",
+              "in": "path",
+              "description": "Data em que a transação foi feita.",
+              "required": true,
+              "type": "date"
             },
             {
-                "name": "valor",
-                "in": "path",
-                "description": "Valor da transação.",
-                "required": true,
-                "type": "integer"
+              "name": "valor",
+              "in": "path",
+              "description": "Valor da transação.",
+              "required": true,
+              "type": "integer"
             }
         ],
         "responses": {
@@ -467,5 +474,14 @@
       }
     }
   },
-  "definitions": {}
+  "definitions": {
+    "Loja": {
+      "type": "object",
+      "properties": {
+        "nome": {
+          "type": "string"
+        }
+      }
+  }
+  }
 }
