@@ -41,7 +41,8 @@
 <p>$npm run start</p>
 
 <h2>Documentação</h2>
-<p>Para entrar na documentação basta acessar o caminho: baseURL/docs</p>
+<p>Para entrar na documentação basta acessar o caminho: 
+baseURL/docs. Exemplo: http://localhost:3333/doc</p>
 <h4 align="center"> 
 	Em construção
 </h4>
