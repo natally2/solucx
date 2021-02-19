@@ -24,7 +24,7 @@
 <h3>Para rodar o projeto</h3>
 
 <h4>Clone o seguinte repositório:</h4>
-<p>https://github.com/natally2/solucx.git</p>
+<p>https://github.com/natally2/solucx.git usando o comando "git clone"</p>
 
 <h4>Instale as seguintes dependencias</h4>
 <p>$npm install</p>
