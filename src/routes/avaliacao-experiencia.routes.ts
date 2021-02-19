@@ -2,6 +2,7 @@ import { Router } from "express";
 import { getRepository } from "typeorm";
 import * as yup from "yup";
 import Avaliacao from "../models/Avaliacao";
+import Transacao from "../models/Transacao";
 
 const avaliacaoRouter = Router();
 
@@ -24,6 +25,8 @@ avaliacaoRouter.get('/', async (req, res) => {
 
 avaliacaoRouter.post('/', async (req, res) => {
     const { id_transacao, nota, comentario } = req.body;
+    const avaliacaoRepository = getRepository(Avaliacao);
+    const transacaoRepository = getRepository(Transacao);
 
     const schema = yup.object({
         id_transacao: yup.number()
@@ -41,7 +44,9 @@ avaliacaoRouter.post('/', async (req, res) => {
 
     try {
         await schema.validate({id_transacao, nota, comentario});
-        const avaliacaoRepository = getRepository(Avaliacao);
+      
+        const transacao = await transacaoRepository.findOne({id: id_transacao});
+        if (!transacao) throw new Error("Id da transação não existe. Insira outro e tente novamente!");
     
         const avaliacao = avaliacaoRepository.create({
             id_transacao,

@@ -2,12 +2,20 @@ import { Router } from "express";
 import { getRepository } from "typeorm";
 import * as yup from "yup";
 import Transacao from "../models/Transacao";
+import Clientes from "../models/Clientes";
+import Lojas from "../models/Lojas";
+import Colaborador from "../models/Colaborador";
 
 const transacaoRouter = Router();
 
 transacaoRouter.post('/', async (req, res) => {
     const { id_cliente, id_loja, id_colaborador, data, valor } = req.body;
     const id = req.params.id_transacao;
+
+    const transacaoRepository = getRepository(Transacao);
+    const clientesRepository = getRepository(Clientes);
+    const lojasRepository = getRepository(Lojas);
+    const colaboradoresRepository = getRepository(Colaborador);
 
     const schema = yup.object({
         id_cliente: yup.number().integer().positive()
@@ -26,8 +34,16 @@ transacaoRouter.post('/', async (req, res) => {
 
     try {
         await schema.validate({id, id_cliente, id_loja, id_colaborador, data, valor});
-        const transacaoRepository = getRepository(Transacao);
-    
+        
+        const cliente = await clientesRepository.findOne({id: id_cliente});
+        if (!cliente) throw new Error("Id do cliente não existe. Insira outro e tente novamente!");
+        
+        const loja = await lojasRepository.findOne({id: id_loja});
+        if (!loja) throw new Error("Id da loja não existe. Insira outro e tente novamente!");
+
+        const colaborador = await colaboradoresRepository.findOne({id: id_colaborador});
+        if (!colaborador) throw new Error("Id do colaborador não existe. Insira outro e tente novamente!"); 
+
         const transacao = transacaoRepository.create({
             id_cliente,
             id_loja,
@@ -49,6 +65,11 @@ transacaoRouter.put('/:id_transacao', async (req, res) => {
     const { id_cliente, id_loja, id_colaborador, data, valor } = req.body;
     const id = req.params.id_transacao;
 
+    const transacaoRepository = getRepository(Transacao);
+    const clientesRepository = getRepository(Clientes);
+    const lojasRepository = getRepository(Lojas);
+    const colaboradoresRepository = getRepository(Colaborador);
+    
     const schema = yup.object({
         id: yup.number().integer().positive()
         .required("Id da transação é obrigatório!"),
@@ -67,8 +88,16 @@ transacaoRouter.put('/:id_transacao', async (req, res) => {
 
     try {
         await schema.validate({id, id_cliente, id_loja, id_colaborador, data, valor});
-        const transacaoRepository = getRepository(Transacao);
-    
+
+        const cliente = await clientesRepository.findOne({id: id_cliente});
+        if (!cliente) throw new Error("Id do cliente não existe. Insira outro e tente novamente!");
+        
+        const loja = await lojasRepository.findOne({id: id_loja});
+        if (!loja) throw new Error("Id da loja não existe. Insira outro e tente novamente!");
+
+        const colaborador = await colaboradoresRepository.findOne({id: id_colaborador});
+        if (!colaborador) throw new Error("Id do colaborador não existe. Insira outro e tente novamente!"); 
+
         const transacao = transacaoRepository.findOne(id);
 
         if (!transacao) throw new Error("Transação não existe!");
